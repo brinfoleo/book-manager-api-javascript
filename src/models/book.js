@@ -18,6 +18,7 @@ const Book = sequelize.define('Book', {
   },
 }, {
   modelName: 'Book',
+  timestamps: false,
 });
 
 module.exports = Book;
