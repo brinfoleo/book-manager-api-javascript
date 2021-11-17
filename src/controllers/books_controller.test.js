@@ -9,16 +9,12 @@ const dummyBookData = [
   {
     bookId: 1,
     title: 'The Hobbit',
-    description: 'The Hobbit, or There and Back Again is a children\'s fantasy novel by English author J. R. R. Tolkien.',
     author: 'J. R. R. Tolkien',
-    genre: 'Fantasy',
   },
   {
     bookId: 2,
     title: 'Before the Coffee Gets Cold',
-    description: 'In a small back alley in Tokyo, there is a cafe which has been serving carefully brewed coffee for more than one hundred years.',
     author: 'Toshikazu Kawaguchi',
-    genre: 'Education',
   },
 ];
 
@@ -85,5 +81,29 @@ describe('GET /api/v1/books/{bookId} endpoint', () => {
 
     // Assert
     expect(res.body).toEqual(dummyBookData[1]);
+  });
+});
+
+describe('POST /api/v1/books endpoint', () => {
+  test('status code successfully 201 for saving a valid book', async () => {
+    // Act
+    const res = await request(app).post('/api/v1/books')
+      .send({bookId: 3, title: 'Fantastic Mr. Fox', author: 'Roald Dahl',});
+
+    // Assert
+    expect(res.statusCode).toEqual(201);
+  });
+
+  test('status code 400 when saving ill formatted JSON', async () => {
+    // Arrange - enforce exception thrown
+    bookService.saveBook = jest.fn().mockImplementation(() => {
+      throw new Error("Error saving book");
+    });
+    // Act
+    const res = await request(app).post('/api/v1/books')
+      .send({title: 'Fantastic Mr. Fox', author: 'Roald Dahl',}); // No bookId
+
+    // Assert
+    expect(res.statusCode).toEqual(400);
   });
 });

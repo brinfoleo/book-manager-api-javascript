@@ -18,8 +18,13 @@ const getBook = async (req, res) => {
 
 const saveBook = async (req, res) => {
   const bookToBeSaved = req.body;
-  const book = await bookService.saveBook(bookToBeSaved);
-  res.status(201).json(book);
+  try {
+    const book = await bookService.saveBook(bookToBeSaved);
+    res.status(201).json(book);
+  }
+  catch(error) {
+    res.status(400).json({message: error.message});
+  }
 };
 
 // User Story 4 - Update Book By Id Solution
