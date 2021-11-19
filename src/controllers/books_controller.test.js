@@ -1,4 +1,4 @@
-const {bookService} = require('../services');
+const { bookService } = require('../services');
 jest.mock('../services/books');
 
 
@@ -88,7 +88,7 @@ describe('POST /api/v1/books endpoint', () => {
   test('status code successfully 201 for saving a valid book', async () => {
     // Act
     const res = await request(app).post('/api/v1/books')
-      .send({bookId: 3, title: 'Fantastic Mr. Fox', author: 'Roald Dahl',});
+      .send({ bookId: 3, title: 'Fantastic Mr. Fox', author: 'Roald Dahl', });
 
     // Assert
     expect(res.statusCode).toEqual(201);
@@ -101,9 +101,20 @@ describe('POST /api/v1/books endpoint', () => {
     });
     // Act
     const res = await request(app).post('/api/v1/books')
-      .send({title: 'Fantastic Mr. Fox', author: 'Roald Dahl',}); // No bookId
+      .send({ title: 'Fantastic Mr. Fox', author: 'Roald Dahl', }); // No bookId
 
     // Assert
     expect(res.statusCode).toEqual(400);
+  });
+});
+describe('DELETE /api/v1/books/{bookId} endpoint', () => {
+  test('status code successfully 405 for a book deleted', async () => {
+    // Arrange
+    bookService.getBook = jest.fn().mockReturnValue(dummyBookData[1]);
+    // Act
+    const res = await request(app).delete('/api/v1/books/2');
+
+    // Assert
+    expect(res.statusCode).toEqual(405);
   });
 });

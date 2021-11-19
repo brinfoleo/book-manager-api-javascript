@@ -1,31 +1,31 @@
 {
-  "name": "api-lab-1-solution-javascript",
+  "name": "book-manager-api-javascript",
   "version": "1.0.0",
-  "description": "A repository used to demonstrate API creation using NodeJS",
+  "description": "This is the starter repository for the Further APIs session. It provides a start to creating a Minimalist Book Manager API.",
+  "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techreturners/api-lab-1-solution-javascript.git"
+    "url": "git+https://github.com/brinfoleo/book-manager-api-javascript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/techreturners/api-lab-1-solution-javascript/issues"
+    "url": "https://github.com/brinfoleo/book-manager-api-javascript/issues"
   },
-  "homepage": "https://github.com/techreturners/api-lab-1-solution-javascript#readme",
+  "homepage": "https://github.com/brinfoleo/book-manager-api-javascript#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
     "express": "^4.17.1",
-    "sequelize": "^6.9.0"
-  },
-  "devDependencies": {
     "jest": "^27.3.1",
-    "sqlite3": "^4.0.23",
+    "sequelize": "^6.11.0",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
   }
 }
