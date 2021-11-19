@@ -10,6 +10,13 @@ const getBook = async (bookId) => {
   });
 };
 
+const deleteBook = async (bookId) => {
+  return Book.destroy({
+    where: {bookId},
+  });
+};
+
+
 const saveBook = async (book) => {
   return Book.create(book);
 };
@@ -26,6 +33,7 @@ const updateBook = async (bookId, book) => {
 module.exports = {
   getBooks,
   getBook,
+  deleteBook,
   saveBook,
   updateBook, // User Story 4 - Update Book By Id Solution
 };

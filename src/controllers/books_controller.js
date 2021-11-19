@@ -26,7 +26,16 @@ const saveBook = async (req, res) => {
     res.status(400).json({message: error.message});
   }
 };
+const deleteBook = async (req, res) => {
+  const bookId = req.params.bookId;
+  const book = await bookService.getBook(Number(bookId));
 
+  if (book) {
+    res.json(book).status(405);
+  } else {
+    res.status(404).json('Not found');
+  }
+};
 // User Story 4 - Update Book By Id Solution
 const updateBook = async (req, res) => {
   const bookUpdateData = req.body;
@@ -38,6 +47,7 @@ const updateBook = async (req, res) => {
 module.exports = {
   getBooks,
   getBook,
+  deleteBook,
   saveBook,
   updateBook, // User Story 4 - Update Book By Id Solution
 };
