@@ -107,14 +107,14 @@ describe('POST /api/v1/books endpoint', () => {
     expect(res.statusCode).toEqual(400);
   });
 });
+
 describe('DELETE /api/v1/books/{bookId} endpoint', () => {
-  test('status code successfully 200 for a book deleted', async () => {
+  test('status code unsuccessfully 404 for a book deleted', async () => {
     // Arrange
-    bookService.getBook = jest.fn().mockReturnValue(dummyBookData[1]);
     // Act
     const res = await request(app).delete('/api/v1/books/1');
 
     // Assert
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(404);
   });
 });
