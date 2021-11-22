@@ -12,7 +12,7 @@ const getBook = async (req, res) => {
   if (book) {
     res.json(book).status(200);
   } else {
-    res.status(404).json('Not found');
+    res.status(404).json({message: 'bookId not found, please check!'});
   }
 };
 
