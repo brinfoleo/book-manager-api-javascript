@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "jest",
-    "start-prod": "set NODE_ENV=prod && node src/server.js"
+    "start-prod-mysql": "set NODE_ENV=prod-mysql && node src/server.js",
+    "start-prod-postgresql": "set NODE_ENV=prod-postgresql && node src/server.js"
+
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,8 @@
     "express": "^4.17.1",
     "jest": "^27.3.1",
     "mysql2": "^2.3.3",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.11.0",
     "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
