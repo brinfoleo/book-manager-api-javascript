@@ -1,5 +1,11 @@
 # 📖 Minimalist Book Manager API
 
+## Below are the command lines for each database:
+sqlite - npm start
+mysql - npm start-prod-mysql
+postgre - npm start-prod-postgresql
+
+
 ## Introduction
 This is the starter repository for the Further APIs session. It provides a start to creating a Minimalist Book Manager API.
 
