@@ -1,5 +1,5 @@
 const environment = process.env.NODE_ENV || 'dev';
-require('dotenv').config({path: `./.env.${environment}`});
+require('dotenv').config({path: `./.env.${environment.trim()}`});
 
 const app = require('./app');
 const populateDummyData = require('./database/database_seed');
