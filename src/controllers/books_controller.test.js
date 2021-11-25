@@ -1,4 +1,7 @@
+//
+require('dotenv').config({path: `./.env`});
 const { bookService } = require('../services');
+
 jest.mock('../services/books');
 
 
