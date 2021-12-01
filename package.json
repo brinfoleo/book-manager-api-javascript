@@ -8,7 +8,6 @@
     "test": "jest",
     "start-prod-mysql": "set NODE_ENV=prod-mysql && node src/server.js",
     "start-prod-postgresql": "set NODE_ENV=prod-postgresql && node src/server.js"
-
   },
   "repository": {
     "type": "git",
@@ -32,6 +31,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.11.0",
     "sqlite3": "^5.0.2",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
   }
 }

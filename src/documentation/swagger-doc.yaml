@@ -1,0 +1,34 @@
+openapi: 3.0.0
+paths:
+  /api/v1/books:
+    get:
+      summary: "Returns all books"
+      responses:  
+        200:  
+          description: "A JSON array of books"
+    post:
+    summary: "Add a book"
+    responses:  
+      201:
+      description: "Created"
+    
+  /api/v1/books/:bookId:
+      get:
+        summary: "Take a specific book"
+        responses:  
+          200:
+            description: "Json object"
+        
+      delete:
+        summary: "Delete a specific book"
+        responses:  
+          200:
+            description: "Json object"
+        
+      put:
+        summary: "Update a book's data"
+        responses:  
+          200:
+            description: "Json object"
+        
+

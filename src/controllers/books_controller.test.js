@@ -1,5 +1,5 @@
-//
-require('dotenv').config({path: `./.env`});
+//add ENV for testing
+require('dotenv').config({ path: `./.env` });
 const { bookService } = require('../services');
 
 jest.mock('../services/books');
@@ -26,6 +26,7 @@ afterEach(() => {
 });
 
 describe('GET /api/v1/books endpoint', () => {
+
   test('status code successfully 200', async () => {
     // Act
     const res = await request(app).get('/api/v1/books');
@@ -75,7 +76,7 @@ describe('GET /api/v1/books/{bookId} endpoint', () => {
     // Assert
     expect(res.statusCode).toEqual(404);
   });
-
+  //######################### CONFLICT ########################################
   test('controller successfully returns book object as JSON', async () => {
     // Arrange
     bookService.getBook = jest.fn().mockReturnValue(dummyBookData[1]);
@@ -88,10 +89,13 @@ describe('GET /api/v1/books/{bookId} endpoint', () => {
 });
 
 describe('POST /api/v1/books endpoint', () => {
+  //######################### CONFLICT ########################################
   test('status code successfully 201 for saving a valid book', async () => {
+    // Arrange
+    
     // Act
     const res = await request(app).post('/api/v1/books')
-      .send({ bookId: 3, title: 'Fantastic Mr. Fox', author: 'Roald Dahl', });
+      .send({ bookId: 3, title: 'Fantastic Mr. Fox', author: 'Roald Dahl' });
 
     // Assert
     expect(res.statusCode).toEqual(201);
@@ -109,6 +113,7 @@ describe('POST /api/v1/books endpoint', () => {
     // Assert
     expect(res.statusCode).toEqual(400);
   });
+
 });
 
 describe('DELETE /api/v1/books/{bookId} endpoint', () => {
